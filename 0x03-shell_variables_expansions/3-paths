@@ -1,8 +1,2 @@
 #!/bin/bash
-IFS=':' read -ra PATH_ARRAY <<< "$PATH"
-COUNT=0
-for DIR in "${PATH_ARRAY[@]}"; do
-  if [ -d "$DIR" ]; then
-    COUNT=$((COUNT+1))
-  fi
-done
+echo $(($(echo $PATH | grep -o ":" | wc -l)+1))
